@@ -1,0 +1,21 @@
+CREATE TABLE CachedTrip (
+    id TEXT NOT NULL PRIMARY KEY,
+    origin TEXT NOT NULL,
+    destination TEXT NOT NULL,
+    departureTime TEXT NOT NULL,
+    price REAL NOT NULL,
+    availableSeats INTEGER NOT NULL,
+    cachedAt INTEGER NOT NULL
+);
+
+selectAll:
+SELECT * FROM CachedTrip ORDER BY departureTime ASC;
+
+insert:
+INSERT OR REPLACE INTO CachedTrip VALUES (?, ?, ?, ?, ?, ?, ?);
+
+deleteAll:
+DELETE FROM CachedTrip;
+
+deleteExpired:
+DELETE FROM CachedTrip WHERE cachedAt < ?;

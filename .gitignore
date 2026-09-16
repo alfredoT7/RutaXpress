@@ -1,0 +1,39 @@
+# Gradle
+.gradle/
+build/
+**/build/
+local.properties
+
+# Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+
+# Xcode
+xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+Pods/
+
+# Kotlin/Native
+*.klib
+
+# DS_Store
+.DS_Store
+
+# Secrets
+local.properties
+*.env
+*.hprof
+*.hprof
+*.hprof
