@@ -14,6 +14,7 @@ data class LoginResponseDto(
     val name: String,
     val username: String,
     val email: String,
+    val token: String,
     val message: String,
 )
 
@@ -31,5 +32,6 @@ data class RegisterResponseDto(
     val name: String,
     val username: String,
     val email: String,
+    val token: String,
     val message: String,
 )

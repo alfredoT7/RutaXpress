@@ -9,4 +9,6 @@ interface AuthRepository {
     suspend fun register(name: String, username: String, email: String, password: String): ResultState<User>
     suspend fun logout()
     fun getSavedUserId(): Flow<String?>
+    fun getToken(): Flow<String?>
+    fun getRole(): Flow<String?>
 }

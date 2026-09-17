@@ -11,7 +11,7 @@ import org.koin.dsl.module
 
 val authModule = module {
     single { AuthApi(get()) }
-    single<AuthRepository> { AuthRepositoryImpl(get(), get()) }
+    single<AuthRepository> { AuthRepositoryImpl(get(), get(), get()) }
     single { LoginUseCase(get()) }
     single { RegisterUseCase(get()) }
     factory { (scope: CoroutineScope) -> AuthViewModel(get(), get(), scope) }
