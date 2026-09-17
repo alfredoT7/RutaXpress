@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA0000000000000000001001 /* RutaXpressApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002001 /* RutaXpressApp.swift */; };
+		AA0000000000000000001002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002002 /* ContentView.swift */; };
+		AA0000000000000000001006 /* KoinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002006 /* KoinHelper.swift */; };
+		AA0000000000000000001007 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002007 /* WelcomeView.swift */; };
+		AA0000000000000000001008 /* cochabamba-welcome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002008 /* cochabamba-welcome.jpg */; };
+		AA0000000000000000001009 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002009 /* Theme.swift */; };
+		AA000000000000000000100A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000200A /* Assets.xcassets */; };
+		AA000000000000000000100B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000200B /* Icons.swift */; };
+		AA000000000000000000100C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000200C /* OnboardingView.swift */; };
+		AA000000000000000000100D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000200D /* AuthView.swift */; };
+		AA000000000000000000100E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000200E /* LoginView.swift */; };
+		AA000000000000000000100F /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000000000000000000200F /* RegisterView.swift */; };
+		AA0000000000000000001010 /* AuthComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002010 /* AuthComponents.swift */; };
+		AA0000000000000000001011 /* AuthViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002011 /* AuthViewModelWrapper.swift */; };
+		AA0000000000000000001012 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002012 /* MainTabView.swift */; };
+		AA0000000000000000001013 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002013 /* HomeView.swift */; };
+		AA0000000000000000001014 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002014 /* SearchView.swift */; };
+		AA0000000000000000001015 /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002015 /* AlertsView.swift */; };
+		AA0000000000000000001016 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002016 /* ProfileView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA0000000000000000002000 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA0000000000000000002001 /* RutaXpressApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutaXpressApp.swift; sourceTree = "<group>"; };
+		AA0000000000000000002002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA0000000000000000002006 /* KoinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoinHelper.swift; sourceTree = "<group>"; };
+		AA0000000000000000002007 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		AA0000000000000000002008 /* cochabamba-welcome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cochabamba-welcome.jpg"; sourceTree = "<group>"; };
+		AA0000000000000000002009 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		AA000000000000000000200A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA000000000000000000200B /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		AA000000000000000000200C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		AA000000000000000000200D /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		AA000000000000000000200E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		AA000000000000000000200F /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		AA0000000000000000002010 /* AuthComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthComponents.swift; sourceTree = "<group>"; };
+		AA0000000000000000002011 /* AuthViewModelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelWrapper.swift; sourceTree = "<group>"; };
+		AA0000000000000000002012 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		AA0000000000000000002013 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AA0000000000000000002014 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		AA0000000000000000002015 /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
+		AA0000000000000000002016 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA0000000000000000003001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA0000000000000000004001 = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000004002 /* iosApp */,
+				AA0000000000000000004007 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA0000000000000000004002 /* iosApp */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000002001 /* RutaXpressApp.swift */,
+				AA0000000000000000002002 /* ContentView.swift */,
+				AA0000000000000000002012 /* MainTabView.swift */,
+				AA0000000000000000002008 /* cochabamba-welcome.jpg */,
+				AA000000000000000000200A /* Assets.xcassets */,
+				AA0000000000000000004003 /* features */,
+				AA0000000000000000004006 /* core */,
+			);
+			path = iosApp;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000004003 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000004008 /* welcome */,
+				AA0000000000000000004009 /* onboarding */,
+				AA000000000000000000400A /* auth */,
+				AA000000000000000000400B /* home */,
+				AA000000000000000000400C /* search */,
+				AA000000000000000000400D /* alerts */,
+				AA000000000000000000400E /* profile */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000400B /* home */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000002013 /* HomeView.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000400C /* search */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000002014 /* SearchView.swift */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000400D /* alerts */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000002015 /* AlertsView.swift */,
+			);
+			path = alerts;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000400E /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000002016 /* ProfileView.swift */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000400A /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000200D /* AuthView.swift */,
+				AA000000000000000000200E /* LoginView.swift */,
+				AA000000000000000000200F /* RegisterView.swift */,
+				AA0000000000000000002010 /* AuthComponents.swift */,
+				AA0000000000000000002011 /* AuthViewModelWrapper.swift */,
+			);
+			path = auth;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000004009 /* onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AA000000000000000000200C /* OnboardingView.swift */,
+			);
+			path = onboarding;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000004006 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000002006 /* KoinHelper.swift */,
+				AA0000000000000000002009 /* Theme.swift */,
+				AA000000000000000000200B /* Icons.swift */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000004008 /* welcome */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000002007 /* WelcomeView.swift */,
+			);
+			path = welcome;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000004007 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000002000 /* iosApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA0000000000000000005001 /* iosApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA0000000000000000008002 /* Build configuration list for PBXNativeTarget "iosApp" */;
+			buildPhases = (
+				AA0000000000000000006001 /* KMP Build */,
+				AA0000000000000000007001 /* Sources */,
+				AA0000000000000000003001 /* Frameworks */,
+				AA0000000000000000009001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iosApp;
+			productName = iosApp;
+			productReference = AA0000000000000000002000 /* iosApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA000000000000000000F001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					AA0000000000000000005001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = AA0000000000000000008001 /* Build configuration list for PBXProject "iosApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA0000000000000000004001;
+			productRefGroup = AA0000000000000000004007 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA0000000000000000005001 /* iosApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA0000000000000000009001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000001008 /* cochabamba-welcome.jpg in Resources */,
+				AA000000000000000000100A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA0000000000000000006001 /* KMP Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "KMP Build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -z \"$JAVA_HOME\" ]; then\n  export JAVA_HOME=\"/Applications/Android Studio.app/Contents/jbr/Contents/Home\"\nfi\ncd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA0000000000000000007001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000001001 /* RutaXpressApp.swift in Sources */,
+				AA0000000000000000001002 /* ContentView.swift in Sources */,
+				AA0000000000000000001006 /* KoinHelper.swift in Sources */,
+				AA0000000000000000001007 /* WelcomeView.swift in Sources */,
+				AA0000000000000000001009 /* Theme.swift in Sources */,
+				AA000000000000000000100B /* Icons.swift in Sources */,
+				AA000000000000000000100C /* OnboardingView.swift in Sources */,
+				AA000000000000000000100D /* AuthView.swift in Sources */,
+				AA000000000000000000100E /* LoginView.swift in Sources */,
+				AA000000000000000000100F /* RegisterView.swift in Sources */,
+				AA0000000000000000001010 /* AuthComponents.swift in Sources */,
+				AA0000000000000000001011 /* AuthViewModelWrapper.swift in Sources */,
+				AA0000000000000000001012 /* MainTabView.swift in Sources */,
+				AA0000000000000000001013 /* HomeView.swift in Sources */,
+				AA0000000000000000001014 /* SearchView.swift in Sources */,
+				AA0000000000000000001015 /* AlertsView.swift in Sources */,
+				AA0000000000000000001016 /* ProfileView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AA000000000000000000J001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA000000000000000000J002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		AA000000000000000000J003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MR5Y9Q397X;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = RutaXpress;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					shared,
+					"-lsqlite3",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fredodev.rutaxpress;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA000000000000000000J004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MR5Y9Q397X;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = RutaXpress;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					shared,
+					"-lsqlite3",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fredodev.rutaxpress;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA0000000000000000008001 /* Build configuration list for PBXProject "iosApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000000000000000000J001 /* Debug */,
+				AA000000000000000000J002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA0000000000000000008002 /* Build configuration list for PBXNativeTarget "iosApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA000000000000000000J003 /* Debug */,
+				AA000000000000000000J004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA000000000000000000F001 /* Project object */;
+}
