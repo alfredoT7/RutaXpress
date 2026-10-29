@@ -8,6 +8,6 @@ import org.koin.dsl.module
 
 val coreModule = module {
     single { createDataStore() }
-    single { SessionTokenHolder() }
+    single { SessionTokenHolder(get()) }
     single { createHttpClient(get()) }
 }

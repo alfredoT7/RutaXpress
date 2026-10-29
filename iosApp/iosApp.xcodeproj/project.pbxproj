@@ -26,6 +26,8 @@
 		AA0000000000000000001014 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002014 /* SearchView.swift */; };
 		AA0000000000000000001015 /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002015 /* AlertsView.swift */; };
 		AA0000000000000000001016 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002016 /* ProfileView.swift */; };
+		AA0000000000000000001017 /* LineAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002017 /* LineAdminView.swift */; };
+		AA0000000000000000001018 /* LineAdminViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002018 /* LineAdminViewModelWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		AA0000000000000000002014 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		AA0000000000000000002015 /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
 		AA0000000000000000002016 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		AA0000000000000000002017 /* LineAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAdminView.swift; sourceTree = "<group>"; };
+		AA0000000000000000002018 /* LineAdminViewModelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAdminViewModelWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 				AA000000000000000000400C /* search */,
 				AA000000000000000000400D /* alerts */,
 				AA000000000000000000400E /* profile */,
+				AA000000000000000000400F /* admin */,
 			);
 			path = features;
 			sourceTree = "<group>";
@@ -128,6 +133,15 @@
 				AA0000000000000000002016 /* ProfileView.swift */,
 			);
 			path = profile;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000400F /* admin */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000002017 /* LineAdminView.swift */,
+				AA0000000000000000002018 /* LineAdminViewModelWrapper.swift */,
+			);
+			path = admin;
 			sourceTree = "<group>";
 		};
 		AA000000000000000000400A /* auth */ = {
@@ -245,6 +259,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		AA0000000000000000006001 /* KMP Build */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -285,6 +300,8 @@
 				AA0000000000000000001014 /* SearchView.swift in Sources */,
 				AA0000000000000000001015 /* AlertsView.swift in Sources */,
 				AA0000000000000000001016 /* ProfileView.swift in Sources */,
+				AA0000000000000000001017 /* LineAdminView.swift in Sources */,
+				AA0000000000000000001018 /* LineAdminViewModelWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +393,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -392,7 +410,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -414,6 +432,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -430,7 +449,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
