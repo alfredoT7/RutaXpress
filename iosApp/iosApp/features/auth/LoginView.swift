@@ -7,6 +7,7 @@ struct LoginView: View {
     @State private var identifier = ""
     @State private var password = ""
     @State private var showError = false
+    @State private var localError: String? = nil
     @FocusState private var focused: LoginField?
 
     private enum LoginField { case identifier, password }
@@ -75,14 +76,22 @@ struct LoginView: View {
             if error != nil { showError = true }
         }
         .alert("Error", isPresented: $showError) {
-            Button("OK") { wrapper.clearError() }
+            Button("OK") {
+                localError = nil
+                wrapper.clearError()
+            }
         } message: {
-            Text(wrapper.uiState.error ?? "")
+            Text(localError ?? wrapper.uiState.error ?? "")
         }
     }
 
     private func submitLogin() {
-        onLoginSuccess()
+        guard !identifier.isEmpty, !password.isEmpty else {
+            localError = "Completa correo/usuario y contraseña"
+            showError = true
+            return
+        }
+        wrapper.login(identifier: identifier, password: password)
     }
 }
 

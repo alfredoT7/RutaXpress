@@ -26,6 +26,6 @@ class AuthApi(private val client: HttpClient) {
         }.body()
 
     companion object {
-        private const val BASE_URL = "https://rutaxpressapi.onrender.com/api/users"
+        private const val BASE_URL = "https://apiruta.softcraftbol.com/api/users"
     }
 }

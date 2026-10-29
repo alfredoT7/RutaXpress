@@ -19,7 +19,7 @@ struct ContentView: View {
                     .overlay(ProgressView().tint(AppColors.primary))
             }
         } else {
-            MainTabView()
+            MainTabView(onLogout: { authDone = false })
         }
     }
 }

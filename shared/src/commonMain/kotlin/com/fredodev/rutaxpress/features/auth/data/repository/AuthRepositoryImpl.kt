@@ -5,6 +5,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.fredodev.rutaxpress.core.network.SessionTokenHolder
+import com.fredodev.rutaxpress.core.network.TOKEN_PREFERENCE_KEY_NAME
 import com.fredodev.rutaxpress.core.util.JwtDecoder
 import com.fredodev.rutaxpress.core.util.ResultState
 import com.fredodev.rutaxpress.features.auth.data.remote.AuthApi
@@ -64,7 +65,7 @@ class AuthRepositoryImpl(
 
     companion object {
         private val USER_ID_KEY = stringPreferencesKey("user_id")
-        private val TOKEN_KEY = stringPreferencesKey("auth_token")
+        private val TOKEN_KEY = stringPreferencesKey(TOKEN_PREFERENCE_KEY_NAME)
         private val ROLE_KEY = stringPreferencesKey("auth_role")
     }
 }

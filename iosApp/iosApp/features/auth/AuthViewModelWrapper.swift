@@ -33,4 +33,8 @@ final class AuthViewModelWrapper: ObservableObject {
     func resetSuccess() {
         viewModel.resetSuccess()
     }
+
+    func logout() {
+        viewModel.onLogoutClick()
+    }
 }

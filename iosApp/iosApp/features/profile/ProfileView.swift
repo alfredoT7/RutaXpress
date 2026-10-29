@@ -15,6 +15,9 @@ private let settingRows: [SettingRow] = [
 ]
 
 struct ProfileView: View {
+    let onLogout: () -> Void
+    @StateObject private var wrapper = AuthViewModelWrapper()
+
     var body: some View {
         ZStack(alignment: .top) {
             AppColors.bg.ignoresSafeArea()
@@ -30,6 +33,12 @@ struct ProfileView: View {
             }
         }
         .navigationBarHidden(true)
+        .onChange(of: wrapper.uiState.isLoggedOut) { loggedOut in
+            if loggedOut {
+                wrapper.resetSuccess()
+                onLogout()
+            }
+        }
     }
 
     private var profileHeader: some View {
@@ -54,7 +63,7 @@ struct ProfileView: View {
     private var settingsList: some View {
         VStack(spacing: AppSpacing.sm) {
             ForEach(settingRows) { row in
-                Button(action: {}) {
+                Button(action: { if row.destructive { wrapper.logout() } }) {
                     HStack(spacing: AppSpacing.md) {
                         Image(systemName: row.icon)
                             .font(.system(size: 15, weight: .semibold))
@@ -83,4 +92,4 @@ struct ProfileView: View {
     }
 }
 
-#Preview { ProfileView() }
+#Preview { ProfileView(onLogout: {}) }

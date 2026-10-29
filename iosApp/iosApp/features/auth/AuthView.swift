@@ -30,6 +30,10 @@ struct AuthView: View {
                 }
                 .padding(.bottom, AppSpacing.xl)
 
+                Text("BUILD-CHECK-DEBUG-002")
+                    .font(.system(size: 10, weight: .bold))
+                    .foregroundColor(.red)
+
                 Picker("", selection: $tab) {
                     Text("Iniciar sesión").tag(AuthTab.login)
                     Text("Registrarse").tag(AuthTab.register)

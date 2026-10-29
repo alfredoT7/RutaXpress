@@ -118,12 +118,13 @@ struct RegisterView: View {
     }
 
     private func submitRegister() {
+        guard !name.isEmpty, !username.isEmpty, !email.isEmpty, !password.isEmpty else { return }
         guard password == confirmPassword else {
             localError = "Las contraseñas no coinciden"
             showError = true
             return
         }
-        onRegisterSuccess()
+        wrapper.register(name: name, username: username, email: email, password: password)
     }
 }
 

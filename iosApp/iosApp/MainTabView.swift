@@ -1,13 +1,15 @@
 import SwiftUI
+import shared
 
 enum AppTab: Int, CaseIterable {
-    case home, search, alerts, profile
+    case home, search, alerts, admin, profile
 
     var icon: String {
         switch self {
         case .home:    return "house.fill"
         case .search:  return "magnifyingglass"
         case .alerts:  return "bell.fill"
+        case .admin:   return "shield.fill"
         case .profile: return "person.fill"
         }
     }
@@ -17,6 +19,7 @@ enum AppTab: Int, CaseIterable {
         case .home:    return "Inicio"
         case .search:  return "Buscar"
         case .alerts:  return "Alertas"
+        case .admin:   return "Admin"
         case .profile: return "Perfil"
         }
     }
@@ -25,12 +28,18 @@ enum AppTab: Int, CaseIterable {
 let tabBarHeight: CGFloat = 64
 
 struct MainTabView: View {
+    let onLogout: () -> Void
     @State private var selected: AppTab = .home
+    @State private var isAdmin = false
     /// 0 = sheet colapsado (tab bar visible) · 1 = sheet expandido (tab bar oculto)
     @State private var sheetProgress: CGFloat = 0
 
     /// Sólo Home controla el ocultado; en otras tabs el bar siempre visible.
     private var hide: CGFloat { selected == .home ? sheetProgress : 0 }
+
+    private var visibleTabs: [AppTab] {
+        AppTab.allCases.filter { $0 != .admin || isAdmin }
+    }
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -39,12 +48,20 @@ struct MainTabView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             // Tab bar superpuesta: se desliza y desvanece sin afectar el layout del contenido
-            FixedTabBar(selected: $selected)
+            FixedTabBar(selected: $selected, tabs: visibleTabs)
                 .offset(y: (tabBarHeight + 40) * hide)
                 .opacity(Double(1 - hide))
                 .allowsHitTesting(hide < 0.5)
         }
         .ignoresSafeArea(.keyboard)
+        .onAppear {
+            KoinHelperKt.observeCurrentRole { role in
+                DispatchQueue.main.async {
+                    isAdmin = (role == "ROLE_ADMIN")
+                    if selected == .admin && !isAdmin { selected = .home }
+                }
+            }
+        }
     }
 
     @ViewBuilder
@@ -53,7 +70,8 @@ struct MainTabView: View {
         case .home:    HomeView(sheetProgress: $sheetProgress)
         case .search:  SearchView()
         case .alerts:  AlertsView()
-        case .profile: ProfileView()
+        case .admin:   LineAdminView()
+        case .profile: ProfileView(onLogout: onLogout)
         }
     }
 }
@@ -62,6 +80,7 @@ struct MainTabView: View {
 
 private struct FixedTabBar: View {
     @Binding var selected: AppTab
+    let tabs: [AppTab]
 
     var body: some View {
         VStack(spacing: 0) {
@@ -70,7 +89,7 @@ private struct FixedTabBar: View {
                 .frame(height: 1)
 
             HStack(spacing: 0) {
-                ForEach(AppTab.allCases, id: \.self) { tab in
+                ForEach(tabs, id: \.self) { tab in
                     item(tab)
                 }
             }
@@ -99,4 +118,4 @@ private struct FixedTabBar: View {
     }
 }
 
-#Preview { MainTabView() }
+#Preview { MainTabView(onLogout: {}) }

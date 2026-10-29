@@ -1,6 +1,7 @@
 package com.fredodev.rutaxpress.features.auth.presentation
 
 import com.fredodev.rutaxpress.core.util.ResultState
+import com.fredodev.rutaxpress.features.auth.domain.repository.AuthRepository
 import com.fredodev.rutaxpress.features.auth.domain.usecase.LoginUseCase
 import com.fredodev.rutaxpress.features.auth.domain.usecase.RegisterUseCase
 import kotlinx.coroutines.CoroutineScope
@@ -13,6 +14,7 @@ import kotlinx.coroutines.launch
 class AuthViewModel(
     private val loginUseCase: LoginUseCase,
     private val registerUseCase: RegisterUseCase,
+    private val authRepository: AuthRepository,
     private val scope: CoroutineScope,
 ) {
     private val _uiState = MutableStateFlow(AuthUiState())
@@ -48,6 +50,13 @@ class AuthViewModel(
         }
     }
 
+    fun onLogoutClick() {
+        scope.launch {
+            authRepository.logout()
+            _uiState.update { AuthUiState(isLoggedOut = true) }
+        }
+    }
+
     fun currentUiState(): AuthUiState = _uiState.value
 
     fun clearError() {
@@ -55,7 +64,7 @@ class AuthViewModel(
     }
 
     fun resetSuccess() {
-        _uiState.update { it.copy(isLoginSuccess = false, isRegisterSuccess = false) }
+        _uiState.update { it.copy(isLoginSuccess = false, isRegisterSuccess = false, isLoggedOut = false) }
     }
 
     fun observeUiState(onState: (AuthUiState) -> Unit) {
