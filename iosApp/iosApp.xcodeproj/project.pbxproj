@@ -28,6 +28,7 @@
 		AA0000000000000000001016 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002016 /* ProfileView.swift */; };
 		AA0000000000000000001017 /* LineAdminView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002017 /* LineAdminView.swift */; };
 		AA0000000000000000001018 /* LineAdminViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002018 /* LineAdminViewModelWrapper.swift */; };
+		AA0000000000000000001019 /* SessionViewModelWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000000000000000002019 /* SessionViewModelWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		AA0000000000000000002016 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AA0000000000000000002017 /* LineAdminView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAdminView.swift; sourceTree = "<group>"; };
 		AA0000000000000000002018 /* LineAdminViewModelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineAdminViewModelWrapper.swift; sourceTree = "<group>"; };
+		AA0000000000000000002019 /* SessionViewModelWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModelWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0000000000000000002006 /* KoinHelper.swift */,
+				AA0000000000000000002019 /* SessionViewModelWrapper.swift */,
 				AA0000000000000000002009 /* Theme.swift */,
 				AA000000000000000000200B /* Icons.swift */,
 			);
@@ -302,6 +305,7 @@
 				AA0000000000000000001016 /* ProfileView.swift in Sources */,
 				AA0000000000000000001017 /* LineAdminView.swift in Sources */,
 				AA0000000000000000001018 /* LineAdminViewModelWrapper.swift in Sources */,
+				AA0000000000000000001019 /* SessionViewModelWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

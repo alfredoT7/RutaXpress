@@ -7,11 +7,12 @@ import com.fredodev.rutaxpress.features.auth.domain.usecase.LoginUseCase
 import com.fredodev.rutaxpress.features.auth.domain.usecase.RegisterUseCase
 import com.fredodev.rutaxpress.features.auth.presentation.AuthViewModel
 import kotlinx.coroutines.CoroutineScope
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val authModule = module {
     single { AuthApi(get()) }
-    single<AuthRepository> { AuthRepositoryImpl(get(), get(), get()) }
+    single<AuthRepository> { AuthRepositoryImpl(get(), get(), get(), get(named("applicationScope"))) }
     single { LoginUseCase(get()) }
     single { RegisterUseCase(get()) }
     factory { (scope: CoroutineScope) -> AuthViewModel(get(), get(), get(), scope) }

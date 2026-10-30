@@ -33,6 +33,8 @@ struct ProfileView: View {
             }
         }
         .navigationBarHidden(true)
+        .onAppear { wrapper.startObserving() }
+        .onDisappear { wrapper.stopObserving() }
         .onChange(of: wrapper.uiState.isLoggedOut) { loggedOut in
             if loggedOut {
                 wrapper.resetSuccess()

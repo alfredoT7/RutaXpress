@@ -6,16 +6,31 @@ final class AuthViewModelWrapper: ObservableObject {
     @Published private(set) var uiState: AuthUiState
 
     private let viewModel: AuthViewModel
+    private var uiStateSubscription: FlowSubscription?
 
     init() {
         let vm = KoinHelperKt.getAuthViewModel()
         self.viewModel = vm
         self.uiState = vm.currentUiState()
-        vm.observeUiState { [weak self] state in
+    }
+
+    func startObserving() {
+        guard uiStateSubscription == nil else { return }
+        uiStateSubscription = viewModel.observeUiState { [weak self] state in
             DispatchQueue.main.async {
                 self?.uiState = state
             }
         }
+    }
+
+    func stopObserving() {
+        uiStateSubscription?.cancel()
+        uiStateSubscription = nil
+    }
+
+    deinit {
+        uiStateSubscription?.cancel()
+        viewModel.clear()
     }
 
     func login(identifier: String, password: String) {

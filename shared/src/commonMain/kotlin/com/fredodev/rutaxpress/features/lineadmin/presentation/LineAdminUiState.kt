@@ -5,6 +5,8 @@ import com.fredodev.rutaxpress.features.lineadmin.domain.model.UserSummary
 
 data class LineAdminUiState(
     val isLoadingRoutes: Boolean = false,
+    val isRefreshingRoutes: Boolean = false,
+    val routeRefreshError: String? = null,
     val routes: List<Route> = emptyList(),
     val selectedRoute: Route? = null,
     val isLookingUpUser: Boolean = false,

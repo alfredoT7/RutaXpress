@@ -20,6 +20,33 @@ struct LineAdminView: View {
                     } else {
                         routesList
 
+                        if wrapper.uiState.isRefreshingRoutes {
+                            HStack(spacing: AppSpacing.sm) {
+                                ProgressView().controlSize(.small)
+                                Text("Actualizando rutas…")
+                                    .font(AppFonts.caption)
+                                    .foregroundColor(AppColors.muted)
+                            }
+                            .frame(maxWidth: .infinity, alignment: .center)
+                        }
+
+                        if let refreshError = wrapper.uiState.routeRefreshError {
+                            HStack(alignment: .center, spacing: AppSpacing.md) {
+                                Text("No se pudo actualizar. Mostrando rutas guardadas.")
+                                    .font(AppFonts.caption)
+                                    .foregroundColor(AppColors.muted)
+                                Spacer(minLength: AppSpacing.xs)
+                                Button("Reintentar") {
+                                    wrapper.clearRouteRefreshError()
+                                    wrapper.loadRoutes(forceRefresh: true)
+                                }
+                                .font(AppFonts.caption)
+                                .foregroundColor(AppColors.primary)
+                            }
+                            .padding(.vertical, AppSpacing.xs)
+                            .accessibilityLabel(refreshError)
+                        }
+
                         if let route = wrapper.uiState.selectedRoute {
                             assignmentCard(for: route)
                         }
@@ -31,7 +58,11 @@ struct LineAdminView: View {
             }
         }
         .navigationBarHidden(true)
-        .onAppear { wrapper.loadRoutes() }
+        .onAppear {
+            wrapper.startObserving()
+            wrapper.loadRoutes()
+        }
+        .onDisappear { wrapper.stopObserving() }
         .onChange(of: wrapper.uiState.error) { error in
             if error != nil { showError = true }
         }
@@ -62,7 +93,7 @@ struct LineAdminView: View {
     }
 
     private var routesList: some View {
-        VStack(spacing: AppSpacing.sm) {
+        LazyVStack(spacing: AppSpacing.sm) {
             ForEach(wrapper.uiState.routes, id: \.id) { route in
                 Button {
                     identifier = ""

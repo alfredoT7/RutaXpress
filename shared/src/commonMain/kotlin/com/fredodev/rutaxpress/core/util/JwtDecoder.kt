@@ -4,6 +4,7 @@ import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.longOrNull
 import kotlinx.serialization.json.jsonPrimitive
 
 @OptIn(ExperimentalEncodingApi::class)
@@ -15,6 +16,15 @@ object JwtDecoder {
         val json = Json.parseToJsonElement(decoded) as JsonObject
         json["role"]?.jsonPrimitive?.content
     }.getOrNull()
+
+    fun isExpired(token: String, nowEpochSeconds: Long): Boolean = runCatching {
+        val parts = token.split(".")
+        if (parts.size != 3) return@runCatching true
+        val decoded = Base64.UrlSafe.decode(padBase64(parts[1])).decodeToString()
+        val payload = Json.parseToJsonElement(decoded) as JsonObject
+        val expiration = payload["exp"]?.jsonPrimitive?.longOrNull ?: return@runCatching false
+        expiration <= nowEpochSeconds
+    }.getOrDefault(true)
 
     private fun padBase64(value: String): String {
         val remainder = value.length % 4

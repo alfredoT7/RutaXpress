@@ -57,6 +57,8 @@ struct AuthView: View {
                 }
             }
         }
+        .onAppear { viewModelWrapper.startObserving() }
+        .onDisappear { viewModelWrapper.stopObserving() }
         .onTapGesture { UIApplication.hideKeyboard() }
     }
 }

@@ -10,8 +10,16 @@ import com.fredodev.rutaxpress.features.lineadmin.domain.repository.LineAdminRep
 
 class LineAdminRepositoryImpl(private val api: LineAdminApi) : LineAdminRepository {
 
+    private val routeCache = RouteCache()
+
+    override fun cachedRoutes() = routeCache.snapshot()
+
+    override fun shouldRefreshRoutes() = !routeCache.isFresh()
+
     override suspend fun listRoutes(): ResultState<List<Route>> = runCatching {
-        ResultState.Success(api.listRoutes().map { it.toDomain() })
+        val routes = api.listRoutes().map { it.toDomain() }
+        routeCache.replace(routes)
+        ResultState.Success(routes)
     }.getOrElse { ResultState.Error(it.message ?: "No se pudieron cargar las rutas", it) }
 
     override suspend fun lookupUser(identifier: String): ResultState<UserSummary> = runCatching {
@@ -19,11 +27,15 @@ class LineAdminRepositoryImpl(private val api: LineAdminApi) : LineAdminReposito
     }.getOrElse { ResultState.Error(it.message ?: "Usuario no encontrado", it) }
 
     override suspend fun assignAdmin(routeId: Long, userId: Long): ResultState<Route> = runCatching {
-        ResultState.Success(api.assignAdmin(routeId, userId).toDomain())
+        val route = api.assignAdmin(routeId, userId).toDomain()
+        routeCache.update(route)
+        ResultState.Success(route)
     }.getOrElse { ResultState.Error(it.message ?: "No se pudo asignar el encargado", it) }
 
     override suspend fun unassignAdmin(routeId: Long): ResultState<Route> = runCatching {
-        ResultState.Success(api.unassignAdmin(routeId).toDomain())
+        val route = api.unassignAdmin(routeId).toDomain()
+        routeCache.update(route)
+        ResultState.Success(route)
     }.getOrElse { ResultState.Error(it.message ?: "No se pudo quitar el encargado", it) }
 
     private fun RouteDto.toDomain() = Route(id = id, name = name, code = code, active = active, adminUserId = adminUserId)

@@ -1,10 +1,12 @@
 package com.fredodev.rutaxpress.features.auth.presentation
 
 import com.fredodev.rutaxpress.core.util.ResultState
+import com.fredodev.rutaxpress.core.util.FlowSubscription
 import com.fredodev.rutaxpress.features.auth.domain.repository.AuthRepository
 import com.fredodev.rutaxpress.features.auth.domain.usecase.LoginUseCase
 import com.fredodev.rutaxpress.features.auth.domain.usecase.RegisterUseCase
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -67,7 +69,10 @@ class AuthViewModel(
         _uiState.update { it.copy(isLoginSuccess = false, isRegisterSuccess = false, isLoggedOut = false) }
     }
 
-    fun observeUiState(onState: (AuthUiState) -> Unit) {
-        scope.launch { uiState.collect { onState(it) } }
+    fun observeUiState(onState: (AuthUiState) -> Unit): FlowSubscription {
+        val job = scope.launch { uiState.collect { onState(it) } }
+        return FlowSubscription { job.cancel() }
     }
+
+    fun clear() = scope.cancel()
 }

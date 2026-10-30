@@ -6,20 +6,30 @@ final class LineAdminViewModelWrapper: ObservableObject {
     @Published private(set) var uiState: LineAdminUiState
 
     private let viewModel: LineAdminViewModel
+    private var uiStateSubscription: FlowSubscription?
 
     init() {
         let vm = KoinHelperKt.getLineAdminViewModel()
         self.viewModel = vm
         self.uiState = vm.currentUiState()
-        vm.observeUiState { [weak self] state in
+    }
+
+    func startObserving() {
+        guard uiStateSubscription == nil else { return }
+        uiStateSubscription = viewModel.observeUiState { [weak self] state in
             DispatchQueue.main.async {
                 self?.uiState = state
             }
         }
     }
 
-    func loadRoutes() {
-        viewModel.loadRoutes()
+    func stopObserving() {
+        uiStateSubscription?.cancel()
+        uiStateSubscription = nil
+    }
+
+    func loadRoutes(forceRefresh: Bool = false) {
+        viewModel.loadRoutes(forceRefresh: forceRefresh)
     }
 
     func selectRoute(_ route: Route) {
@@ -42,7 +52,16 @@ final class LineAdminViewModelWrapper: ObservableObject {
         viewModel.clearError()
     }
 
+    func clearRouteRefreshError() {
+        viewModel.clearRouteRefreshError()
+    }
+
     func clearSuccess() {
         viewModel.clearSuccess()
+    }
+
+    deinit {
+        uiStateSubscription?.cancel()
+        viewModel.clear()
     }
 }

@@ -6,4 +6,6 @@ import com.fredodev.rutaxpress.features.lineadmin.domain.repository.LineAdminRep
 
 class ListRoutesUseCase(private val repository: LineAdminRepository) {
     suspend operator fun invoke(): ResultState<List<Route>> = repository.listRoutes()
+    fun cachedRoutes() = repository.cachedRoutes()
+    fun shouldRefresh() = repository.shouldRefreshRoutes()
 }

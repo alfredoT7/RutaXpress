@@ -1,12 +1,13 @@
 package com.fredodev.rutaxpress.core.di
 
-import com.fredodev.rutaxpress.core.network.SessionTokenHolder
+import com.fredodev.rutaxpress.core.util.FlowSubscription
+import com.fredodev.rutaxpress.features.auth.domain.model.SessionState
 import com.fredodev.rutaxpress.features.auth.domain.repository.AuthRepository
 import com.fredodev.rutaxpress.features.auth.presentation.AuthViewModel
 import com.fredodev.rutaxpress.features.lineadmin.presentation.LineAdminViewModel
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 import org.koin.core.context.startKoin
 import org.koin.core.parameter.parametersOf
@@ -16,16 +17,6 @@ fun initKoin() {
     startKoin {
         sharedModules()
     }
-    hydrateSession()
-}
-
-private fun hydrateSession() {
-    val koin = KoinPlatform.getKoin()
-    val tokenHolder = koin.get<SessionTokenHolder>()
-    val authRepository = koin.get<AuthRepository>()
-    MainScope().launch {
-        tokenHolder.set(authRepository.getToken().firstOrNull())
-    }
 }
 
 fun getAuthViewModel(): AuthViewModel =
@@ -34,9 +25,14 @@ fun getAuthViewModel(): AuthViewModel =
 fun getLineAdminViewModel(): LineAdminViewModel =
     KoinPlatform.getKoin().get { parametersOf(MainScope()) }
 
-fun observeCurrentRole(onRole: (String?) -> Unit) {
+fun observeSession(onState: (SessionState) -> Unit): FlowSubscription {
     val authRepository = KoinPlatform.getKoin().get<AuthRepository>()
-    MainScope().launch {
-        authRepository.getRole().collect { onRole(it) }
+    val scope = MainScope()
+    val job = scope.launch {
+        authRepository.sessionState.collect { onState(it) }
+    }
+    return FlowSubscription {
+        job.cancel()
+        scope.cancel()
     }
 }
